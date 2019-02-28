@@ -13,7 +13,7 @@ describe('usePlugin', () => {
 });
 
 describe('strip', () => {
-    it('should remove console.log', () => {
+    it('should remove console.log, alert and debugger statements', () => {
         const input = `export class MyComponent {
             getText() {
                 console.log('getText debug');
