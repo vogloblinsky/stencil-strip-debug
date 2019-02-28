@@ -1,0 +1,69 @@
+{
+  "name": "stencil-strip-debug",
+  "version": "0.0.1",
+  "description": "Strip console, alert, and debugger statements from Stencil components",
+  "main": "dist/index.cjs.js",
+  "module": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "files": [
+    "dist/"
+  ],
+  "scripts": {
+    "prebuild": "rimraf ./dist && npm run test && npm run lint",
+    "build": "tsc && npm run rollup",
+    "watch": "tsc --watch",
+    "rollup": "rollup -c",
+    "version": "npm run build",
+    "release": "np",
+    "lint": "tslint --project tsconfig.json",
+    "test": "jest",
+    "test.watch": "jest --watch"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://vogloblinsky@github.com/vogloblinsky/stencil-strip-debug.git"
+  },
+  "keywords": [
+    "stencil",
+    "strip",
+    "debug",
+    "console",
+    "log"
+  ],
+  "author": "Vincent Ogloblinsky",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/vogloblinsky/stencil-strip-debug/issues"
+  },
+  "homepage": "https://github.com/vogloblinsky/stencil-strip-debug#readme",
+  "dependencies": {
+    "espree": "^5.0.1",
+    "rocambole": "^0.7.0",
+    "rocambole-strip-alert": "^1.0.0",
+    "rocambole-strip-console": "^3.0.0",
+    "rocambole-strip-debugger": "^2.0.0"
+  },
+  "devDependencies": {
+    "@types/jest": "^24.0.9",
+    "jest": "^24.1.0",
+    "np": "^4.0.2",
+    "rollup": "^1.3.2",
+    "tslint": "^5.13.0",
+    "tslint-ionic-rules": "0.0.21",
+    "typescript": "^3.3.3333"
+  },
+  "jest": {
+    "transform": {
+      "^.+\\.(js|ts|tsx)$": "<rootDir>/test/jest.preprocessor.js"
+    },
+    "testRegex": "(\\.(test|spec))\\.(tsx?|jsx?)$",
+    "moduleFileExtensions": [
+      "ts",
+      "tsx",
+      "js",
+      "json",
+      "jsx"
+    ],
+    "testURL": "http://localhost"
+  }
+}

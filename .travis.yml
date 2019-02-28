@@ -1,0 +1,10 @@
+os:
+    - linux
+language: node_js
+node_js: stable
+dist: trusty
+install:
+    - npm install npm@latest -g
+    - npm ci
+script:
+    - npm run test
